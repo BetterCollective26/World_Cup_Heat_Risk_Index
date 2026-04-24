@@ -5,112 +5,101 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Ranked: The 16 World Cup Host Venues by Heat Risk | The Action Network</title>
 <style>
-  * { box-sizing: border-box; }
-  body { margin:0; padding:0; background:#fff; font-family:Georgia,serif; color:#1a1a1a; }
-  .page { max-width:760px; margin:0 auto; padding:32px 20px 64px; }
-  .label { font-family:Arial,Helvetica,sans-serif; font-size:11px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:#00C853; border-bottom:2px solid #00C853; display:inline-block; padding-bottom:2px; margin:0 0 16px; }
-  h1 { font-family:Arial,Helvetica,sans-serif; font-size:46px; font-weight:900; line-height:1.0; text-transform:uppercase; letter-spacing:-.01em; color:#1a1a1a; margin:0 0 16px; }
-  h2 { font-family:Arial,Helvetica,sans-serif; font-size:26px; font-weight:700; text-transform:uppercase; letter-spacing:.02em; margin:0 0 16px; color:#1a1a1a; }
-  p { font-family:Georgia,serif; font-size:16px; line-height:1.75; margin:0 0 16px; }
-  .intro { font-size:18px; line-height:1.6; color:#555; border-left:3px solid #00C853; padding-left:16px; margin:0 0 16px; }
-  .byline { font-family:Arial,Helvetica,sans-serif; font-size:13px; color:#888; margin:0 0 32px; padding-bottom:24px; border-bottom:1px solid #e0e0e0; }
-  hr { border:none; border-top:1px solid #e0e0e0; margin:40px 0; }
-  .stat-table { width:100%; margin:0 0 32px; border-collapse:separate; }
-  .stat-cell { background:#f5f5f5; border-radius:6px; padding:16px; text-align:center; }
-  .stat-num { font-family:Arial,Helvetica,sans-serif; font-size:32px; font-weight:900; color:#00C853; display:block; line-height:1; }
-  .stat-label { font-family:Arial,Helvetica,sans-serif; font-size:11px; color:#888; text-transform:uppercase; letter-spacing:.06em; }
-  .finding { background:#fff; border:1px solid #e0e0e0; border-radius:8px; padding:16px 20px; }
-  .finding-title { font-family:Arial,Helvetica,sans-serif; font-size:14px; font-weight:700; margin:0 0 6px; color:#1a1a1a; }
-  .finding-text { font-family:Arial,Helvetica,sans-serif; font-size:13px; line-height:1.5; color:#666; margin:0; }
-  .ranking-table { width:100%; margin:0 0 32px; border-collapse:collapse; }
-  .ranking-table thead tr { border-bottom:2px solid #1a1a1a; }
-  .ranking-table th { font-family:Arial,Helvetica,sans-serif; font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.08em; color:#888; padding:8px 10px; text-align:left; }
-  .ranking-table tr { border-bottom:1px solid #eee; }
-  .ranking-table td { font-family:Arial,Helvetica,sans-serif; font-size:14px; padding:10px; }
-  .rank { font-size:18px!important; font-weight:900; color:#ccc; }
-  .venue { font-weight:700; display:block; }
-  .stadium { font-size:12px; color:#888; }
-  .score { font-weight:700; }
-  .badge { font-size:11px; font-weight:600; padding:2px 8px; border-radius:20px; display:inline-block; }
-  .badge-open { background:#E8F8EF; color:#008C3A; }
-  .badge-partial { background:#FAEEDA; color:#854F0B; }
-  .badge-retractable { background:#EAF3DE; color:#3B6D11; }
-  .badge-fixed { background:#E6F1FB; color:#185FA5; }
-  .callout { background:#f5f5f5; border-left:4px solid #00C853; border-radius:0 6px 6px 0; padding:16px 20px; margin:24px 0; }
-  .callout p { font-family:Arial,Helvetica,sans-serif; font-size:15px; line-height:1.6; color:#1a1a1a; margin:0; }
-  .methodology { background:#f5f5f5; border-left:5px solid #00C853; border-radius:8px; padding:24px; margin:0 0 32px; color:#111; }
-  .methodology h2 { font-size:20px; margin:0 0 8px; color:#111; }
-  .methodology p { font-family:Arial,Helvetica,sans-serif; font-size:14px; color:#111; line-height:1.6; margin:0 0 12px; }
-  .methodology strong { color:#111; font-weight:700; }
-  .formula { background:#fff; border:1px solid #ddd; border-radius:4px; padding:16px 20px; margin:0 0 12px; font-family:'Courier New',monospace; font-size:13px; color:#111; overflow-x:auto; }
-  .methodology .note { font-size:12px; color:#111; }
+  body{margin:0;padding:0;background:#fff;font-family:Georgia,serif;color:#1a1a1a;}
+  .wrap{max-width:760px;margin:0 auto;padding:32px 20px 64px;}
+  .eyebrow{font-family:Arial,Helvetica,sans-serif;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#00C853;border-bottom:2px solid #00C853;display:inline-block;padding-bottom:2px;margin:0 0 16px;}
+  h1{font-family:Arial,Helvetica,sans-serif;font-size:46px;font-weight:900;line-height:1;text-transform:uppercase;letter-spacing:-.01em;color:#1a1a1a;margin:0 0 16px;}
+  h2{font-family:Arial,Helvetica,sans-serif;font-size:26px;font-weight:700;text-transform:uppercase;letter-spacing:.02em;margin:0 0 16px;color:#1a1a1a;}
+  p{font-family:Georgia,serif;font-size:16px;line-height:1.75;margin:0 0 16px;}
+  .dek{font-size:18px;line-height:1.6;color:#555;border-left:3px solid #00C853;padding-left:16px;}
+  .byline{font-family:Arial,Helvetica,sans-serif;font-size:13px;color:#888;margin:0 0 32px;padding-bottom:24px;border-bottom:1px solid #e0e0e0;}
+  hr{border:none;border-top:1px solid #e0e0e0;margin:40px 0;}
+  .stats{width:100%;margin:0 0 32px;border-collapse:separate;border-spacing:0;}
+  .stats td{background:#f5f5f5;border-radius:6px;padding:16px;text-align:center;}
+  .stats .num{font-family:Arial,Helvetica,sans-serif;font-size:32px;font-weight:900;color:#00C853;display:block;line-height:1;}
+  .stats .label{font-family:Arial,Helvetica,sans-serif;font-size:11px;color:#888;text-transform:uppercase;letter-spacing:.06em;}
+  .findings{width:100%;margin:0 0 32px;border-collapse:separate;border-spacing:0 12px;}
+  .findings td{background:#fff;border:1px solid #e0e0e0;border-radius:8px;padding:16px 20px;vertical-align:top;width:49%;}
+  .findings strong{font-family:Arial,Helvetica,sans-serif;font-size:14px;font-weight:700;margin:0 0 6px;color:#1a1a1a;display:block;}
+  .findings p{font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:1.5;color:#666;margin:0;}
+  .rankings{width:100%;margin:0 0 32px;border-collapse:collapse;font-family:Arial,Helvetica,sans-serif;}
+  .rankings thead tr{border-bottom:2px solid #1a1a1a;}
+  .rankings th{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#00C853;font-weight:1000;padding:8px 10px;text-align:left;}
+  .rankings td{border-bottom:1px solid #eee;padding:10px;font-size:14px;vertical-align:middle;}
+  .rank{font-size:18px!important;font-weight:900!important;color:#c7c7c7;}
+  .venue-name{font-size:14px;font-weight:700;color:#000;display:block;}
+  .venue-sub{font-size:12px;color:#6b7280;display:block;margin-top:2px;}
+  .badge{font-size:11px;font-weight:700;padding:3px 8px;border-radius:999px;white-space:nowrap;display:inline-block;}
+  .badge.open{background:#FEE2E2;color:#B91C1C;}
+  .badge.partial{background:#FEF3C7;color:#92400E;}
+  .badge.retractable{background:#DCFCE7;color:#166534;}
+  .badge.fixed{background:#DBEAFE;color:#1D4ED8;}
+  .score-cell{min-width:155px;}
+  .score-bar{display:flex;align-items:center;gap:8px;width:100%;}
+  .score-track{height:8px;flex:1;background:#f1f1f1;border-radius:999px;overflow:hidden;min-width:92px;}
+  .score-fill{height:100%;border-radius:999px;background:#00C853;display:block;}
+  .score-val{font-size:13px;font-weight:800;color:#1a1a1a;min-width:34px;text-align:right;}
+  .score-high .score-fill{background:#D50000;}
+  .score-mid .score-fill{background:#F57C00;}
+  .score-low .score-fill{background:#00A651;}
+  .callout{background:#f5f5f5;border-left:4px solid #00C853;border-radius:0 6px 6px 0;padding:16px 20px;margin:24px 0;}
+  .callout p{font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.6;color:#1a1a1a;margin:0;}
+  .methodology{background:#f5f5f5;border-left:4px solid #00C853;border-radius:8px;padding:24px;margin:0 0 32px;}
+  .methodology h2{font-size:20px;margin:0 0 8px;}
+  .methodology p{font-family:Arial,Helvetica,sans-serif;font-size:14px;line-height:1.6;color:#111;margin:0 0 12px;}
+  .methodology strong{color:#111;}
+  .formula{background:#fff;border:1px solid #ddd;border-radius:4px;padding:16px 20px;margin:0 0 12px;font-family:'Courier New',monospace;font-size:13px;color:#1a1a1a;}
 </style>
 </head>
 <body>
-<div class="page">
-  <p class="label">World Cup 2026 Analysis</p>
+<div class="wrap">
+  <p class="eyebrow">World Cup 2026 Analysis</p>
   <h1>Ranked: The 16 World Cup Host Venues by Heat Risk</h1>
-  <p class="intro">We built a stadium-level heat index for every 2026 World Cup venue, pulling a decade of weather data, urban heat measurements, solar positioning, and roof specifications, to show which cities carry the most risk for players and fans this summer.</p>
+  <p class="dek">We built a stadium-level heat index for every 2026 World Cup venue, pulling a decade of weather data, urban heat measurements, solar positioning, and roof specifications, to show which cities carry the most risk for players and fans this summer.</p>
   <p class="byline">By The Action Network Research Team &nbsp;&middot;&nbsp; May 2026</p>
 
-  <table class="stat-table" cellpadding="0" cellspacing="0" border="0">
-    <tr>
-      <td width="33%" class="stat-cell"><span class="stat-num">16</span><span class="stat-label">Venues ranked</span></td>
-      <td width="2%"></td>
-      <td width="33%" class="stat-cell"><span class="stat-num">87.8</span><span class="stat-label">Highest risk score</span></td>
-      <td width="2%"></td>
-      <td width="30%" class="stat-cell"><span class="stat-num">18&deg;F</span><span class="stat-label">Peak UHI &mdash; Mexico City</span></td>
-    </tr>
-  </table>
+  <table class="stats"><tr>
+    <td width="33%"><span class="num">16</span><span class="label">Venues ranked</span></td>
+    <td width="2%" style="background:transparent;padding:0 6px;"></td>
+    <td width="33%"><span class="num">87.8</span><span class="label">Highest risk score</span></td>
+    <td width="2%" style="background:transparent;padding:0 6px;"></td>
+    <td width="30%"><span class="num">18&deg;F</span><span class="label">Peak UHI &mdash; Mexico City</span></td>
+  </tr></table>
 
   <p>The 2026 FIFA World Cup spans three countries and 16 stadiums, with group-stage games scheduled through June and into July. Most of those fixtures will kick off in the afternoon. Several will do so in conditions that push well past what medical guidelines consider safe for sustained athletic performance.</p>
   <p>We built a composite Heat Risk Index for every host venue, combining a 10-year historical temperature baseline, city-level Urban Heat Island measurements, calculated solar radiation at 3 PM on June 21, and each stadium's roof classification. The scores below reflect what the body actually experiences on the pitch, not what the airport weather app shows.</p>
-
   <hr>
+
   <h2>Key Findings</h2>
-  <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin:0 0 32px;">
-    <tr valign="top">
-      <td width="49%" class="finding"><p class="finding-title">Monterrey outranks every other venue</p><p class="finding-text">A score of 87.8 puts Estadio BBVA nearly five points clear of second place. Open roof, 96.6&deg;F feels-like, 10.8&deg;F urban heat premium.</p></td>
-      <td width="2%"></td>
-      <td width="49%" class="finding"><p class="finding-title">Covered stadiums score markedly lower</p><p class="finding-text">Houston's feels-like tops 99&deg;F, yet NRG Stadium ranks 11th. Its retractable roof eliminates the solar radiation component of the score entirely.</p></td>
-    </tr>
-    <tr><td colspan="3" style="height:12px;"></td></tr>
-    <tr valign="top">
-      <td class="finding"><p class="finding-title">Mexico City's UHI is an outlier</p><p class="finding-text">A 75&deg;F feels-like temperature sits alongside the dataset's highest urban heat spike: 18&deg;F. The ambient reading understates the conditions players face.</p></td>
-      <td></td>
-      <td class="finding"><p class="finding-title">Canada's venues are the coolest in the tournament</p><p class="finding-text">Vancouver (54.9) and Toronto (73.2) sit at opposite ends of the table from Monterrey. Both have retractable infrastructure or mild base climates.</p></td>
-    </tr>
-    <tr><td colspan="3" style="height:12px;"></td></tr>
-    <tr valign="top">
-      <td class="finding"><p class="finding-title">Miami's partial roof does limited work</p><p class="finding-text">Hard Rock Stadium's partial canopy earns a reduced penalty, but 82% humidity and a 97.9&deg;F feels-like temperature push it to sixth overall regardless.</p></td>
-      <td></td>
-      <td class="finding"><p class="finding-title">San Francisco's solar load is deceptive</p><p class="finding-text">Mild air temperatures mask a solar intensity reading of 9.8, the highest of any open-roof US venue, which drives Levi's Stadium to fourth place.</p></td>
-    </tr>
+  <table class="findings">
+    <tr><td><strong>Monterrey outranks every other venue</strong><p>A score of 87.8 puts Estadio BBVA nearly five points clear of second place. Open roof, 96.6&deg;F feels-like, 10.8&deg;F urban heat premium.</p></td><td><strong>Covered stadiums score markedly lower</strong><p>Houston's feels-like tops 99&deg;F, yet NRG Stadium ranks 11th. Its retractable roof eliminates the solar radiation component of the score entirely.</p></td></tr>
+    <tr><td><strong>Mexico City's UHI is an outlier</strong><p>A 75&deg;F feels-like temperature sits alongside the dataset's highest urban heat spike: 18&deg;F. The ambient reading understates the conditions players face.</p></td><td><strong>Canada's venues are the coolest in the tournament</strong><p>Vancouver (54.9) and Toronto (73.2) sit at opposite ends of the table from Monterrey. Both have retractable infrastructure or mild base climates.</p></td></tr>
+    <tr><td><strong>Miami's partial roof does limited work</strong><p>Hard Rock Stadium's partial canopy earns a reduced penalty, but 82% humidity and a 97.9&deg;F feels-like temperature push it to sixth overall regardless.</p></td><td><strong>San Francisco's solar load is deceptive</strong><p>Mild air temperatures mask a solar intensity reading of 9.8, the highest of any open-roof US venue, which drives Levi's Stadium to fourth place.</p></td></tr>
   </table>
-
   <hr>
+
   <h2>Full Rankings</h2>
   <p>The Total Risk Score combines feels-like temperature, urban heat intensity, solar radiation, and a roof penalty into one number. Higher scores mean more heat exposure.</p>
 
-  <table class="ranking-table">
+  <table class="rankings">
     <thead><tr><th>#</th><th>City / Stadium</th><th>Feels Like</th><th>UHI</th><th>Roof</th><th>Score</th></tr></thead>
     <tbody>
-      <tr><td class="rank">1</td><td><span class="venue">Monterrey</span><span class="stadium">Estadio BBVA, MX</span></td><td>96.6&deg;F</td><td>10.8&deg;F</td><td><span class="badge badge-open">Open</span></td><td class="score" style="color:#00C853;">87.8</td></tr>
-      <tr><td class="rank">2</td><td><span class="venue">Kansas City</span><span class="stadium">Arrowhead Stadium, USA</span></td><td>92.6&deg;F</td><td>7.8&deg;F</td><td><span class="badge badge-open">Open</span></td><td class="score" style="color:#D84315;">82.8</td></tr>
-      <tr><td class="rank">3</td><td><span class="venue">Philadelphia</span><span class="stadium">Lincoln Financial Field, USA</span></td><td>88.8&deg;F</td><td>8.5&deg;F</td><td><span class="badge badge-open">Open</span></td><td class="score" style="color:#E64A19;">79.3</td></tr>
-      <tr><td class="rank">4</td><td><span class="venue">San Francisco</span><span class="stadium">Levi's Stadium, USA</span></td><td>80.2&deg;F</td><td>9.1&deg;F</td><td><span class="badge badge-open">Open</span></td><td class="score" style="color:#E64A19;">79.2</td></tr>
-      <tr><td class="rank">5</td><td><span class="venue">New York / NJ</span><span class="stadium">MetLife Stadium, USA</span></td><td>85.9&deg;F</td><td>9.7&deg;F</td><td><span class="badge badge-open">Open</span></td><td class="score" style="color:#EF6C00;">78.1</td></tr>
-      <tr><td class="rank">6</td><td><span class="venue">Miami</span><span class="stadium">Hard Rock Stadium, USA</span></td><td>97.9&deg;F</td><td>8.4&deg;F</td><td><span class="badge badge-partial">Partial</span></td><td class="score" style="color:#EF6C00;">77.9</td></tr>
-      <tr><td class="rank">7</td><td><span class="venue">Guadalajara</span><span class="stadium">Estadio Akron, MX</span></td><td>83.5&deg;F</td><td>9.0&deg;F</td><td><span class="badge badge-open">Open</span></td><td class="score" style="color:#F57C00;">77.1</td></tr>
-      <tr><td class="rank">8</td><td><span class="venue">Mexico City</span><span class="stadium">Estadio Azteca, MX</span></td><td>75.1&deg;F</td><td>18.0&deg;F</td><td><span class="badge badge-open">Open</span></td><td class="score" style="color:#F57C00;">77.1</td></tr>
-      <tr><td class="rank">9</td><td><span class="venue">Boston</span><span class="stadium">Gillette Stadium, USA</span></td><td>82.7&deg;F</td><td>8.4&deg;F</td><td><span class="badge badge-open">Open</span></td><td class="score" style="color:#FB8C00;">75.0</td></tr>
-      <tr><td class="rank">10</td><td><span class="venue">Toronto</span><span class="stadium">BMO Field, Canada</span></td><td>78.8&deg;F</td><td>7.7&deg;F</td><td><span class="badge badge-open">Open</span></td><td class="score" style="color:#FFA000;">73.2</td></tr>
-      <tr><td class="rank">11</td><td><span class="venue">Houston</span><span class="stadium">NRG Stadium, USA</span></td><td>99.3&deg;F</td><td>8.2&deg;F</td><td><span class="badge badge-retractable">Retractable</span></td><td class="score" style="color:#FFB300;">71.7</td></tr>
-      <tr><td class="rank">12</td><td><span class="venue">Dallas</span><span class="stadium">AT&amp;T Stadium, USA</span></td><td>99.0&deg;F</td><td>8.0&deg;F</td><td><span class="badge badge-retractable">Retractable</span></td><td class="score" style="color:#FFB300;">71.4</td></tr>
-      <tr><td class="rank">13</td><td><span class="venue">Atlanta</span><span class="stadium">Mercedes-Benz Stadium, USA</span></td><td>93.0&deg;F</td><td>7.9&deg;F</td><td><span class="badge badge-retractable">Retractable</span></td><td class="score" style="color:#b38a00;">67.3</td></tr>
-      <tr><td class="rank">14</td><td><span class="venue">Seattle</span><span class="stadium">Lumen Field, USA</span></td><td>72.2&deg;F</td><td>8.3&deg;F</td><td><span class="badge badge-partial">Partial</span></td><td class="score" style="color:#388E3C;">61.1</td></tr>
-      <tr><td class="rank">15</td><td><span class="venue">Los Angeles</span><span class="stadium">SoFi Stadium, USA</span></td><td>83.1&deg;F</td><td>8.1&deg;F</td><td><span class="badge badge-fixed">Fixed</span></td><td class="score" style="color:#388E3C;">60.8</td></tr>
-      <tr><td class="rank">16</td><td><span class="venue">Vancouver</span><span class="stadium">BC Place, Canada</span></td><td>69.2&deg;F</td><td>13.1&deg;F</td><td><span class="badge badge-retractable">Retractable</span></td><td class="score" style="color:#2E7D32;">54.9</td></tr>
+      <tr><td class="rank">1</td><td><span class="venue-name">Monterrey</span><span class="venue-sub">Estadio BBVA, MX</span></td><td>96.6&deg;F</td><td>10.8&deg;F</td><td><span class="badge open">Open</span></td><td class="score-cell"><div class="score-bar score-high"><span class="score-track"><span class="score-fill" style="width:87.8%"></span></span><span class="score-val">87.8</span></div></td></tr>
+      <tr><td class="rank">2</td><td><span class="venue-name">Kansas City</span><span class="venue-sub">Arrowhead Stadium, USA</span></td><td>92.6&deg;F</td><td>7.8&deg;F</td><td><span class="badge open">Open</span></td><td class="score-cell"><div class="score-bar score-high"><span class="score-track"><span class="score-fill" style="width:82.8%"></span></span><span class="score-val">82.8</span></div></td></tr>
+      <tr><td class="rank">3</td><td><span class="venue-name">Philadelphia</span><span class="venue-sub">Lincoln Financial Field, USA</span></td><td>88.8&deg;F</td><td>8.5&deg;F</td><td><span class="badge open">Open</span></td><td class="score-cell"><div class="score-bar score-mid"><span class="score-track"><span class="score-fill" style="width:79.3%"></span></span><span class="score-val">79.3</span></div></td></tr>
+      <tr><td class="rank">4</td><td><span class="venue-name">San Francisco</span><span class="venue-sub">Levi's Stadium, USA</span></td><td>80.2&deg;F</td><td>9.1&deg;F</td><td><span class="badge open">Open</span></td><td class="score-cell"><div class="score-bar score-mid"><span class="score-track"><span class="score-fill" style="width:79.2%"></span></span><span class="score-val">79.2</span></div></td></tr>
+      <tr><td class="rank">5</td><td><span class="venue-name">New York / NJ</span><span class="venue-sub">MetLife Stadium, USA</span></td><td>85.9&deg;F</td><td>9.7&deg;F</td><td><span class="badge open">Open</span></td><td class="score-cell"><div class="score-bar score-mid"><span class="score-track"><span class="score-fill" style="width:78.1%"></span></span><span class="score-val">78.1</span></div></td></tr>
+      <tr><td class="rank">6</td><td><span class="venue-name">Miami</span><span class="venue-sub">Hard Rock Stadium, USA</span></td><td>97.9&deg;F</td><td>8.4&deg;F</td><td><span class="badge partial">Partial</span></td><td class="score-cell"><div class="score-bar score-mid"><span class="score-track"><span class="score-fill" style="width:77.9%"></span></span><span class="score-val">77.9</span></div></td></tr>
+      <tr><td class="rank">7</td><td><span class="venue-name">Guadalajara</span><span class="venue-sub">Estadio Akron, MX</span></td><td>83.5&deg;F</td><td>9.0&deg;F</td><td><span class="badge open">Open</span></td><td class="score-cell"><div class="score-bar score-mid"><span class="score-track"><span class="score-fill" style="width:77.1%"></span></span><span class="score-val">77.1</span></div></td></tr>
+      <tr><td class="rank">8</td><td><span class="venue-name">Mexico City</span><span class="venue-sub">Estadio Azteca, MX</span></td><td>75.1&deg;F</td><td>18.0&deg;F</td><td><span class="badge open">Open</span></td><td class="score-cell"><div class="score-bar score-mid"><span class="score-track"><span class="score-fill" style="width:77.1%"></span></span><span class="score-val">77.1</span></div></td></tr>
+      <tr><td class="rank">9</td><td><span class="venue-name">Boston</span><span class="venue-sub">Gillette Stadium, USA</span></td><td>82.7&deg;F</td><td>8.4&deg;F</td><td><span class="badge open">Open</span></td><td class="score-cell"><div class="score-bar score-mid"><span class="score-track"><span class="score-fill" style="width:75%"></span></span><span class="score-val">75.0</span></div></td></tr>
+      <tr><td class="rank">10</td><td><span class="venue-name">Toronto</span><span class="venue-sub">BMO Field, Canada</span></td><td>78.8&deg;F</td><td>7.7&deg;F</td><td><span class="badge open">Open</span></td><td class="score-cell"><div class="score-bar score-mid"><span class="score-track"><span class="score-fill" style="width:73.2%"></span></span><span class="score-val">73.2</span></div></td></tr>
+      <tr><td class="rank">11</td><td><span class="venue-name">Houston</span><span class="venue-sub">NRG Stadium, USA</span></td><td>99.3&deg;F</td><td>8.2&deg;F</td><td><span class="badge retractable">Retractable</span></td><td class="score-cell"><div class="score-bar score-mid"><span class="score-track"><span class="score-fill" style="width:71.7%"></span></span><span class="score-val">71.7</span></div></td></tr>
+      <tr><td class="rank">12</td><td><span class="venue-name">Dallas</span><span class="venue-sub">AT&amp;T Stadium, USA</span></td><td>99.0&deg;F</td><td>8.0&deg;F</td><td><span class="badge retractable">Retractable</span></td><td class="score-cell"><div class="score-bar score-mid"><span class="score-track"><span class="score-fill" style="width:71.4%"></span></span><span class="score-val">71.4</span></div></td></tr>
+      <tr><td class="rank">13</td><td><span class="venue-name">Atlanta</span><span class="venue-sub">Mercedes-Benz Stadium, USA</span></td><td>93.0&deg;F</td><td>7.9&deg;F</td><td><span class="badge retractable">Retractable</span></td><td class="score-cell"><div class="score-bar score-mid"><span class="score-track"><span class="score-fill" style="width:67.3%"></span></span><span class="score-val">67.3</span></div></td></tr>
+      <tr><td class="rank">14</td><td><span class="venue-name">Seattle</span><span class="venue-sub">Lumen Field, USA</span></td><td>72.2&deg;F</td><td>8.3&deg;F</td><td><span class="badge partial">Partial</span></td><td class="score-cell"><div class="score-bar score-low"><span class="score-track"><span class="score-fill" style="width:61.1%"></span></span><span class="score-val">61.1</span></div></td></tr>
+      <tr><td class="rank">15</td><td><span class="venue-name">Los Angeles</span><span class="venue-sub">SoFi Stadium, USA</span></td><td>83.1&deg;F</td><td>8.1&deg;F</td><td><span class="badge fixed">Fixed</span></td><td class="score-cell"><div class="score-bar score-low"><span class="score-track"><span class="score-fill" style="width:60.8%"></span></span><span class="score-val">60.8</span></div></td></tr>
+      <tr><td class="rank">16</td><td><span class="venue-name">Vancouver</span><span class="venue-sub">BC Place, Canada</span></td><td>69.2&deg;F</td><td>13.1&deg;F</td><td><span class="badge retractable">Retractable</span></td><td class="score-cell"><div class="score-bar score-low"><span class="score-track"><span class="score-fill" style="width:54.9%"></span></span><span class="score-val">54.9</span></div></td></tr>
     </tbody>
   </table>
 
@@ -120,26 +109,22 @@
   <p>Monterrey sits in the Cerro de la Silla basin, a geography that traps warm air. The stadium precinct bakes at nearly 11&deg;F above the surrounding rural baseline, which is what the UHI figure captures. FIFA's heat protocols (mandatory water breaks, extended half-time) were written for situations like this. Whether scheduling accommodates the risk is a separate question.</p>
   <div class="callout"><p>Heat acclimatisation requires 10 to 14 days of training in similar conditions to take meaningful effect. Teams from cooler domestic leagues arriving in Mexico without that preparation window will feel the difference in the final 20 minutes of each half, when core temperature peaks.</p></div>
   <p>For afternoon group games in Monterrey, look at first-half goal markets over match result lines. European sides carry a compounding physiological disadvantage in these conditions that the full-game odds may not price accurately.</p>
-
   <hr>
   <h2>Mexico City's Urban Heat Problem</h2>
   <p>Mexico City ranks eighth with a score of 77.1. The feels-like temperature at the Azteca is 75.1&deg;F, the lowest of any open-air venue in the draw. The Urban Heat Island figure is 18&deg;F, the highest in the dataset by 4.9&deg;F over the next closest city.</p>
   <p>The UHI reading captures the thermal mass of Mexico City's urban sprawl. The city retains and radiates heat in ways that raw meteorological data underrepresents. Players experience this as cumulative fatigue rather than immediate heat stress, which makes it harder to manage in real time on the touchline.</p>
   <p>The Azteca also sits at 7,350 feet. Altitude reduces aerobic capacity, particularly in the second half as glycogen depletes faster. Mexico City's ambient temperature may feel manageable during warmup. By the 70th minute, the picture looks different.</p>
-
   <hr>
   <h2>What Covered Stadiums Show</h2>
   <p>Houston's NRG Stadium records a 99.3&deg;F feels-like temperature, the highest raw heat reading in the dataset. Dallas is 99.0&deg;F. Atlanta is 93.0&deg;F. All three rank in the bottom six of the risk table, below Boston, Toronto, and both open-air Mexican venues.</p>
   <p>The retractable roofs at all three venues remove the solar radiation component from the scoring formula entirely. In practice, they also permit air conditioning at pitch level and block direct overhead sun. The solar penalty in our model, when applied to an open stadium, adds between 20 and 25 points to the total score.</p>
   <div class="callout"><p>Dallas and Atlanta have hotter ambient summers than Philadelphia or New York, yet both score lower because the infrastructure absorbs the solar load. Teams and travel planners weighting those fixtures are working from accurate assumptions.</p></div>
   <p>Miami is the partial exception. Hard Rock Stadium's canopy reduces but does not eliminate the solar penalty. With a dew point of 74.3&deg;F and 82% relative humidity, the thermal load at pitch level remains substantial. A partial roof at 97.9&deg;F feels-like is not the same as a full one.</p>
-
   <hr>
   <h2>Seattle, Los Angeles, Vancouver</h2>
   <p>The three lowest-risk US and Canadian venues all have meaningful roof coverage. Lumen Field in Seattle has partial overhead coverage and a base temperature of 72.2&deg;F. SoFi Stadium's fixed translucent roof keeps Los Angeles in the bottom three despite an 83.1&deg;F feels-like. BC Place in Vancouver has a retractable roof, a 69.2&deg;F feels-like, and scores 54.9, which is 33 points below Monterrey.</p>
   <p>Worth noting: Vancouver's UHI reads 13.1&deg;F, the second highest in the dataset after Mexico City. In an open stadium, that figure would matter considerably. The roof makes it irrelevant to the final score.</p>
   <p>Teams drawn heavily into Pacific Northwest fixtures will play fewer cumulative minutes above the heat stress threshold over the group stage. That has a compounding effect on squad fitness heading into the knockout rounds, where most World Cups are decided.</p>
-
   <hr>
   <div class="methodology">
     <h2>Methodology</h2>
@@ -150,8 +135,8 @@
     <p><strong>4. Roof classification.</strong> Each venue was assigned a penalty multiplier: Open = 1.0, Partial = 0.5, Retractable or Fixed = 0.0. This determines how much of the solar radiation load applies to the final score.</p>
     <p><strong>5. Scoring formula.</strong></p>
     <div class="formula">Total Risk Score = Feels Like (&deg;F) + UHI Intensity (&deg;F) + (Solar Intensity &times; 3 &times; Roof Penalty)</div>
-    <p class="note">Solar intensity is multiplied by 3 to scale its typical 8-point range into a 0 to 24 point contribution. Retractable and fixed-roof venues receive a zero solar penalty. Feels-like temperature already incorporates humidity and dew point through its underlying calculation.</p>
-    <p class="note">Final aggregation and ranking were produced in Google Sheets. Raw data and formula outputs are available on request.</p>
+    <p style="font-size:12px;color:#444;">Solar intensity is multiplied by 3 to scale its typical 8-point range into a 0 to 24 point contribution. Retractable and fixed-roof venues receive a zero solar penalty. Feels-like temperature already incorporates humidity and dew point through its underlying calculation.</p>
+    <p style="font-size:12px;color:#444;margin:0;">Final aggregation and ranking were produced in Google Sheets. Raw data and formula outputs are available on request.</p>
   </div>
 </div>
 </body>
