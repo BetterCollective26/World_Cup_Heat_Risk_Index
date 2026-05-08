@@ -6,7 +6,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Ranked: The 16 World Cup Host Venues by Heat Risk | The Action Network</title>
 <style>
-  body{margin:0;padding:0;background:#fff;font-family:Georgia,serif;color:#1a1a1a;}
+  :root{--page-bg:#F7F8FD;}
+  html{background:var(--page-bg);}
+  body{margin:0;padding:0;background:var(--page-bg);font-family:Georgia,serif;color:#1a1a1a;}
   .wrap{max-width:760px;margin:0 auto;padding:32px 20px 64px;}
   .eyebrow{font-family:Arial,Helvetica,sans-serif;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#00C853;border-bottom:2px solid #00C853;display:inline-block;padding-bottom:2px;margin:0 0 16px;}
   h1{font-family:Arial,Helvetica,sans-serif;font-size:46px;font-weight:900;line-height:1;text-transform:uppercase;letter-spacing:-.01em;color:#1a1a1a;margin:0 0 16px;}
@@ -62,7 +64,7 @@
   .an-mobile-scroll-root{
     width:100%;
     max-width:100%;
-    background:#fff;
+    background:var(--page-bg);
   }
 
   @media (max-width:640px){
@@ -71,7 +73,7 @@
       height:100%;
       min-height:100%;
       overflow:hidden;
-      background:#fff;
+      background:var(--page-bg);
     }
 
     .an-mobile-scroll-root{
@@ -86,7 +88,7 @@
       touch-action:pan-y;
       scrollbar-width:thin;
       scrollbar-color:#00C853 #eaf6ee;
-      background:#fff;
+      background:var(--page-bg);
     }
 
     .an-mobile-scroll-root::-webkit-scrollbar{
