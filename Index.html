@@ -51,7 +51,11 @@
     .findings tr,.findings td{display:block;width:100%;}
     .findings td{margin:0 0 14px;}
   }
-  .rankings{width:100%;margin:0 0 32px;border-collapse:separate;border-spacing:0;font-family:Arial,Helvetica,sans-serif;background:#fff;border:1px solid #e6e8ef;border-radius:10px;overflow:hidden;table-layout:auto;}
+  .rankings-scroll{width:100%;margin:0 0 32px;overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch;touch-action:pan-x;scrollbar-width:thin;scrollbar-color:#00C853 #eaf6ee;background:transparent;}
+  .rankings-scroll::-webkit-scrollbar{height:8px;}
+  .rankings-scroll::-webkit-scrollbar-track{background:#eaf6ee;}
+  .rankings-scroll::-webkit-scrollbar-thumb{background:#00C853;border-radius:999px;border:2px solid #eaf6ee;}
+  .rankings{width:100%;margin:0;border-collapse:separate;border-spacing:0;font-family:Arial,Helvetica,sans-serif;background:#fff;border:1px solid #e6e8ef;border-radius:10px;overflow:hidden;table-layout:auto;}
   .rankings thead tr{border-bottom:2px solid #1a1a1a;background:#fff;}
   .rankings th{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#888;padding:8px 10px;text-align:left;}
   .rankings td{border-bottom:1px solid #eee;padding:10px;font-size:14px;vertical-align:middle;background:#fff;}
@@ -210,29 +214,19 @@
       padding:16px 18px;
     }
 
-    .rankings{
-      display:block;
+    .rankings-scroll{
       width:100%;
-      min-width:760px;
       overflow-x:auto;
+      overflow-y:hidden;
       -webkit-overflow-scrolling:touch;
       touch-action:pan-x;
-      scrollbar-width:thin;
-      scrollbar-color:#00C853 #eaf6ee;
+      margin-bottom:24px;
     }
 
-    .rankings::-webkit-scrollbar{
-      height:8px;
-    }
-
-    .rankings::-webkit-scrollbar-track{
-      background:#eaf6ee;
-    }
-
-    .rankings::-webkit-scrollbar-thumb{
-      background:#00C853;
-      border-radius:999px;
-      border:2px solid #eaf6ee;
+    .rankings{
+      width:760px;
+      min-width:760px;
+      margin:0;
     }
 
     .rankings th,
@@ -298,7 +292,7 @@
   <h2>Full Rankings</h2>
   <p>The Total Risk Score combines feels-like temperature, urban heat intensity, solar radiation, and a roof penalty into one number. Higher scores mean more heat exposure.</p>
 
-  <table class="rankings">
+  <div class="rankings-scroll"><table class="rankings">
     <thead><tr><th>#</th><th>City / Stadium</th><th>Feels Like</th><th>UHI</th><th>Roof</th><th>Score</th></tr></thead>
     <tbody>
       <tr><td class="rank">1</td><td><span class="venue-name">Monterrey</span><span class="venue-sub">Estadio BBVA, MX</span></td><td>96.6&deg;F</td><td>10.8&deg;F</td><td><span class="badge open">Open</span></td><td class="score-cell"><div class="score-bar score-high"><span class="score-track"><span class="score-fill" style="width:87.8%"></span></span><span class="score-val">87.8</span></div></td></tr>
@@ -318,7 +312,7 @@
       <tr><td class="rank">15</td><td><span class="venue-name">Los Angeles</span><span class="venue-sub">SoFi Stadium, USA</span></td><td>83.1&deg;F</td><td>8.1&deg;F</td><td><span class="badge fixed">Fixed</span></td><td class="score-cell"><div class="score-bar score-low"><span class="score-track"><span class="score-fill" style="width:60.8%"></span></span><span class="score-val">60.8</span></div></td></tr>
       <tr><td class="rank">16</td><td><span class="venue-name">Vancouver</span><span class="venue-sub">BC Place, Canada</span></td><td>69.2&deg;F</td><td>13.1&deg;F</td><td><span class="badge retractable">Retractable</span></td><td class="score-cell"><div class="score-bar score-low"><span class="score-track"><span class="score-fill" style="width:54.9%"></span></span><span class="score-val">54.9</span></div></td></tr>
     </tbody>
-  </table>
+  </table></div>
 
   <hr>
   <h2>Monterrey</h2>
