@@ -9,7 +9,7 @@
   :root{--page-bg:#F7F8FD;}
   html{background:var(--page-bg);}
   body{margin:0;padding:0;background:var(--page-bg);font-family:Georgia,serif;color:#1a1a1a;}
-  .wrap{max-width:760px;margin:0 auto;padding:32px 20px 64px;}
+  .wrap{width:100%;max-width:760px;margin:0 auto;padding:32px 20px 28px;box-sizing:border-box;background:var(--page-bg);}
   .eyebrow{font-family:Arial,Helvetica,sans-serif;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#00C853;border-bottom:2px solid #00C853;display:inline-block;padding-bottom:2px;margin:0 0 16px;}
   h1{font-family:Arial,Helvetica,sans-serif;font-size:46px;font-weight:900;line-height:1;text-transform:uppercase;letter-spacing:-.01em;color:#1a1a1a;margin:0 0 16px;}
   h2{font-family:Arial,Helvetica,sans-serif;font-size:26px;font-weight:700;text-transform:uppercase;letter-spacing:.02em;margin:0 0 16px;color:#1a1a1a;}
@@ -25,12 +25,33 @@
   .findings td{background:#fff;border:1px solid #e0e0e0;border-left:4px solid #00C853;border-radius:0 8px 8px 0;padding:18px 22px;vertical-align:top;width:50%;box-sizing:border-box;}
   .findings strong{font-family:Arial,Helvetica,sans-serif;font-size:14px;font-weight:700;margin:0 0 8px;color:#1a1a1a;display:block;}
   .findings p{font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:1.55;color:#666;margin:0;}
+
+  @media (min-width:641px){
+    html,
+    body{
+      overflow:visible;
+      background:var(--page-bg);
+    }
+
+    .an-mobile-scroll-root{
+      min-height:auto;
+      overflow:visible;
+      background:var(--page-bg);
+    }
+
+    .wrap::after{
+      content:"";
+      display:block;
+      height:24px;
+    }
+  }
+
   @media (max-width:640px){
     .findings{display:block;border-spacing:0;margin:0 0 32px;}
     .findings tr,.findings td{display:block;width:100%;}
     .findings td{margin:0 0 14px;}
   }
-  .rankings{width:100%;margin:0 0 32px;border-collapse:separate;border-spacing:0;font-family:Arial,Helvetica,sans-serif;background:#fff;border:1px solid #e6e8ef;border-radius:10px;overflow:hidden;}
+  .rankings{width:100%;margin:0 0 32px;border-collapse:separate;border-spacing:0;font-family:Arial,Helvetica,sans-serif;background:#fff;border:1px solid #e6e8ef;border-radius:10px;overflow:hidden;table-layout:auto;}
   .rankings thead tr{border-bottom:2px solid #1a1a1a;background:#fff;}
   .rankings th{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#888;padding:8px 10px;text-align:left;}
   .rankings td{border-bottom:1px solid #eee;padding:10px;font-size:14px;vertical-align:middle;background:#fff;}
@@ -52,7 +73,7 @@
   .score-low .score-fill{background:#00A651;}
   .callout{background:#fff;border:1px solid #e6e8ef;border-left:4px solid #00C853;border-radius:0 8px 8px 0;padding:16px 20px;margin:24px 0;}
   .callout p{font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.6;color:#1a1a1a;margin:0;}
-  .methodology{background:#fff;border:1px solid #e6e8ef;border-left:4px solid #00C853;border-radius:8px;padding:24px;margin:0 0 32px;}
+  .methodology{background:#fff;border:1px solid #e6e8ef;border-left:4px solid #00C853;border-radius:8px;padding:24px;margin:0;}
   .methodology h2{font-size:20px;margin:0 0 8px;}
   .methodology p{font-family:Arial,Helvetica,sans-serif;font-size:14px;line-height:1.6;color:#111;margin:0 0 12px;}
   .methodology strong{color:#111;}
@@ -65,6 +86,7 @@
     width:100%;
     max-width:100%;
     background:var(--page-bg);
+    overflow:visible;
   }
 
   @media (max-width:640px){
@@ -111,7 +133,7 @@
 
     .wrap{
       max-width:100%;
-      padding:24px 16px 22px;
+      padding:24px 16px 28px;
     }
 
     h1{
