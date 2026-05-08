@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -54,9 +55,125 @@
   .methodology p{font-family:Arial,Helvetica,sans-serif;font-size:14px;line-height:1.6;color:#111;margin:0 0 12px;}
   .methodology strong{color:#111;}
   .formula{background:#fff;border:1px solid #ddd;border-radius:4px;padding:16px 20px;margin:0 0 12px;font-family:'Courier New',monospace;font-size:13px;color:#1a1a1a;}
+
+
+  /* Mobile iframe scroll fix
+     When this HTML is hosted inside a fixed-height iframe, mobile layouts can become
+     taller than the iframe and get cut off. This shell creates a branded internal
+     scroll area only on mobile, while desktop remains naturally expanded. */
+  .an-mobile-scroll-shell{
+    width:100%;
+    background:#fff;
+  }
+
+  @media (max-width:640px){
+    html,
+    body{
+      width:100%;
+      height:100%;
+      min-height:100%;
+      overflow:hidden;
+      overscroll-behavior:contain;
+      -webkit-overflow-scrolling:auto;
+    }
+
+    .an-mobile-scroll-shell{
+      height:100vh;
+      max-height:100vh;
+      overflow-y:auto;
+      overflow-x:hidden;
+      -webkit-overflow-scrolling:touch;
+      overscroll-behavior:contain;
+      touch-action:pan-y;
+      scrollbar-width:thin;
+      scrollbar-color:#00C853 #e8f5ed;
+    }
+
+    .an-mobile-scroll-shell::-webkit-scrollbar{
+      width:10px;
+    }
+
+    .an-mobile-scroll-shell::-webkit-scrollbar-track{
+      background:#e8f5ed;
+    }
+
+    .an-mobile-scroll-shell::-webkit-scrollbar-thumb{
+      background:#00C853;
+      border-radius:999px;
+      border:2px solid #e8f5ed;
+    }
+
+    .an-mobile-scroll-shell::-webkit-scrollbar-thumb:hover{
+      background:#009640;
+    }
+
+    .wrap{
+      max-width:100%;
+      padding:24px 16px 56px;
+    }
+
+    h1{
+      font-size:34px;
+      line-height:1.03;
+    }
+
+    h2{
+      font-size:22px;
+    }
+
+    .dek{
+      font-size:16px;
+    }
+
+    .stats,
+    .stats tbody,
+    .stats tr,
+    .stats td{
+      display:block;
+      width:100% !important;
+      box-sizing:border-box;
+    }
+
+    .stats td{
+      margin:0 0 10px;
+    }
+
+    .stats td[style*="background:transparent"]{
+      display:none;
+    }
+
+    .rankings{
+      min-width:720px;
+    }
+
+    .rankings-scroll{
+      width:100%;
+      overflow-x:auto;
+      overflow-y:visible;
+      -webkit-overflow-scrolling:touch;
+      scrollbar-width:thin;
+      scrollbar-color:#00C853 #e8f5ed;
+    }
+
+    .rankings-scroll::-webkit-scrollbar{
+      height:8px;
+    }
+
+    .rankings-scroll::-webkit-scrollbar-track{
+      background:#e8f5ed;
+    }
+
+    .rankings-scroll::-webkit-scrollbar-thumb{
+      background:#00C853;
+      border-radius:999px;
+      border:2px solid #e8f5ed;
+    }
+  }
+
 </style>
 </head>
 <body>
+<div class="an-mobile-scroll-shell" id="anMobileScrollShell">
 <div class="wrap">
   <p class="eyebrow">World Cup 2026 Analysis</p>
   <h1>Ranked: The 16 World Cup Host Venues by Heat Risk</h1>
@@ -86,6 +203,7 @@
   <h2>Full Rankings</h2>
   <p>The Total Risk Score combines feels-like temperature, urban heat intensity, solar radiation, and a roof penalty into one number. Higher scores mean more heat exposure.</p>
 
+  <div class="rankings-scroll">
   <table class="rankings">
     <thead><tr><th>#</th><th>City / Stadium</th><th>Feels Like</th><th>UHI</th><th>Roof</th><th>Score</th></tr></thead>
     <tbody>
@@ -107,6 +225,7 @@
       <tr><td class="rank">16</td><td><span class="venue-name">Vancouver</span><span class="venue-sub">BC Place, Canada</span></td><td>69.2&deg;F</td><td>13.1&deg;F</td><td><span class="badge retractable">Retractable</span></td><td class="score-cell"><div class="score-bar score-low"><span class="score-track"><span class="score-fill" style="width:54.9%"></span></span><span class="score-val">54.9</span></div></td></tr>
     </tbody>
   </table>
+  </div>
 
   <hr>
   <h2>Monterrey</h2>
@@ -144,5 +263,53 @@
     <p style="font-size:12px;color:#444;margin:0;">Final aggregation and ranking were produced in Google Sheets. Raw data and formula outputs are available on request.</p>
   </div>
 </div>
+</div>
+<script>
+(function(){
+  var shell = document.getElementById("anMobileScrollShell");
+  if(!shell) return;
+
+  var startX = 0;
+  var startY = 0;
+  var startScrollTop = 0;
+  var isTouching = false;
+
+  function isMobile(){
+    return window.matchMedia && window.matchMedia("(max-width: 640px)").matches;
+  }
+
+  shell.addEventListener("touchstart", function(e){
+    if(!isMobile() || !e.touches || !e.touches.length) return;
+    isTouching = true;
+    startX = e.touches[0].clientX;
+    startY = e.touches[0].clientY;
+    startScrollTop = shell.scrollTop;
+  }, {passive:true});
+
+  shell.addEventListener("touchmove", function(e){
+    if(!isTouching || !isMobile() || !e.touches || !e.touches.length) return;
+
+    var currentX = e.touches[0].clientX;
+    var currentY = e.touches[0].clientY;
+    var dx = currentX - startX;
+    var dy = currentY - startY;
+
+    /* If the movement is mostly horizontal, leave it alone so the rankings table can swipe sideways. */
+    if(Math.abs(dx) > Math.abs(dy)) return;
+
+    /* For vertical drags anywhere in the widget, move the shell itself. */
+    shell.scrollTop = startScrollTop - dy;
+    e.preventDefault();
+  }, {passive:false});
+
+  shell.addEventListener("touchend", function(){
+    isTouching = false;
+  }, {passive:true});
+
+  shell.addEventListener("touchcancel", function(){
+    isTouching = false;
+  }, {passive:true});
+})();
+</script>
 </body>
 </html>
