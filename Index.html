@@ -6,13 +6,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Ranked: The 16 World Cup Host Venues by Heat Risk | The Action Network</title>
 <style>
-  html{margin:0;padding:0;background:transparent;overflow-x:hidden;scrollbar-width:thin;scrollbar-color:#00C853 #e8f5ed;}
-  body{margin:0;padding:0;background:transparent;font-family:Georgia,serif;color:#1a1a1a;overflow-x:hidden;}
-  body::-webkit-scrollbar{width:10px;height:10px;}
-  body::-webkit-scrollbar-track{background:#e8f5ed;}
-  body::-webkit-scrollbar-thumb{background:#00C853;border-radius:999px;border:2px solid #e8f5ed;}
-  body::-webkit-scrollbar-thumb:hover{background:#009640;}
-  .wrap{max-width:760px;margin:0 auto;padding:32px 20px 0;}
+  body{margin:0;padding:0;background:#fff;font-family:Georgia,serif;color:#1a1a1a;}
+  .wrap{max-width:760px;margin:0 auto;padding:32px 20px 64px;}
   .eyebrow{font-family:Arial,Helvetica,sans-serif;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#00C853;border-bottom:2px solid #00C853;display:inline-block;padding-bottom:2px;margin:0 0 16px;}
   h1{font-family:Arial,Helvetica,sans-serif;font-size:46px;font-weight:900;line-height:1;text-transform:uppercase;letter-spacing:-.01em;color:#1a1a1a;margin:0 0 16px;}
   h2{font-family:Arial,Helvetica,sans-serif;font-size:26px;font-weight:700;text-transform:uppercase;letter-spacing:.02em;margin:0 0 16px;color:#1a1a1a;}
@@ -55,32 +50,197 @@
   .score-low .score-fill{background:#00A651;}
   .callout{background:#f5f5f5;border-left:4px solid #00C853;border-radius:0 6px 6px 0;padding:16px 20px;margin:24px 0;}
   .callout p{font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.6;color:#1a1a1a;margin:0;}
-  .methodology{background:#f5f5f5;border-left:4px solid #00C853;border-radius:8px;padding:24px;margin:0;}
+  .methodology{background:#f5f5f5;border-left:4px solid #00C853;border-radius:8px;padding:24px;margin:0 0 32px;}
   .methodology h2{font-size:20px;margin:0 0 8px;}
   .methodology p{font-family:Arial,Helvetica,sans-serif;font-size:14px;line-height:1.6;color:#111;margin:0 0 12px;}
   .methodology strong{color:#111;}
-  .formula{background:#fff;border:1px solid #ddd;border-radius:4px;padding:16px 20px;margin:0 0 12px;font-family:'Courier New',monospace;font-size:13px;color:#1a1a1a;overflow-x:auto;}
+  .formula{background:#fff;border:1px solid #ddd;border-radius:4px;padding:16px 20px;margin:0 0 12px;font-family:'Courier New',monospace;font-size:13px;color:#1a1a1a;}
 
-  .methodology p:last-child{margin-bottom:0!important;}
-  @media (max-width:640px){
-    .wrap{max-width:100%;padding:24px 16px 0;}
-    h1{font-size:34px;line-height:1.03;}
-    h2{font-size:22px;}
-    .dek{font-size:16px;}
-    .stats,.stats tbody,.stats tr,.stats td{display:block;width:100%!important;}
-    .stats td{margin:0 0 10px;}
-    .stats td[style*="transparent"]{display:none!important;}
-    .rankings{display:block;width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:thin;scrollbar-color:#00C853 #e8f5ed;}
-    .rankings::-webkit-scrollbar{height:8px;}
-    .rankings::-webkit-scrollbar-track{background:#e8f5ed;}
-    .rankings::-webkit-scrollbar-thumb{background:#00C853;border-radius:999px;border:2px solid #e8f5ed;}
-    .rankings thead,.rankings tbody{display:table;min-width:720px;width:720px;}
-    .methodology{padding:20px 18px;border-radius:6px;}
-    .formula{font-size:12px;white-space:normal;word-break:break-word;}
+
+  /* Mobile-only iframe fix: keep desktop exactly as-is, but give mobile a branded
+     internal scroll surface when the parent iframe uses scrolling="no". */
+  .an-mobile-scroll-root{
+    width:100%;
+    max-width:100%;
+    background:#fff;
   }
+
+  @media (max-width:640px){
+    html,
+    body{
+      height:100%;
+      min-height:100%;
+      overflow:hidden;
+      background:#fff;
+    }
+
+    .an-mobile-scroll-root{
+      height:100vh;
+      max-height:100vh;
+      overflow-y:auto;
+      overflow-x:hidden;
+      -webkit-overflow-scrolling:touch;
+      overscroll-behavior:contain;
+      touch-action:pan-y;
+      scrollbar-width:thin;
+      scrollbar-color:#00C853 #eaf6ee;
+    }
+
+    .an-mobile-scroll-root::-webkit-scrollbar{
+      width:10px;
+    }
+
+    .an-mobile-scroll-root::-webkit-scrollbar-track{
+      background:#eaf6ee;
+    }
+
+    .an-mobile-scroll-root::-webkit-scrollbar-thumb{
+      background:#00C853;
+      border-radius:999px;
+      border:2px solid #eaf6ee;
+    }
+
+    .an-mobile-scroll-root::-webkit-scrollbar-thumb:hover{
+      background:#009640;
+    }
+
+    .wrap{
+      max-width:100%;
+      padding:24px 16px 0;
+    }
+
+    h1{
+      font-size:32px;
+      line-height:1.05;
+      letter-spacing:-.015em;
+      margin-bottom:14px;
+    }
+
+    h2{
+      font-size:22px;
+      line-height:1.15;
+      margin-bottom:14px;
+    }
+
+    p{
+      font-size:15px;
+      line-height:1.62;
+    }
+
+    .dek{
+      font-size:16px;
+      line-height:1.55;
+    }
+
+    .byline{
+      margin-bottom:24px;
+      padding-bottom:18px;
+    }
+
+    hr{
+      margin:28px 0;
+    }
+
+    .stats{
+      display:block;
+      width:100%;
+      border-spacing:0;
+      margin-bottom:24px;
+    }
+
+    .stats tbody,
+    .stats tr,
+    .stats td{
+      display:block;
+      width:100% !important;
+      box-sizing:border-box;
+    }
+
+    .stats td{
+      margin:0 0 10px;
+    }
+
+    .stats td[style*="transparent"]{
+      display:none !important;
+    }
+
+    .findings{
+      display:block;
+      border-spacing:0;
+      margin-bottom:24px;
+    }
+
+    .findings tbody,
+    .findings tr,
+    .findings td{
+      display:block;
+      width:100% !important;
+      box-sizing:border-box;
+    }
+
+    .findings td{
+      margin:0 0 12px;
+      padding:16px 18px;
+    }
+
+    .rankings{
+      display:block;
+      width:100%;
+      min-width:760px;
+      overflow-x:auto;
+      -webkit-overflow-scrolling:touch;
+      scrollbar-width:thin;
+      scrollbar-color:#00C853 #eaf6ee;
+    }
+
+    .rankings::-webkit-scrollbar{
+      height:8px;
+    }
+
+    .rankings::-webkit-scrollbar-track{
+      background:#eaf6ee;
+    }
+
+    .rankings::-webkit-scrollbar-thumb{
+      background:#00C853;
+      border-radius:999px;
+      border:2px solid #eaf6ee;
+    }
+
+    .rankings th,
+    .rankings td{
+      white-space:nowrap;
+    }
+
+    .venue-sub{
+      white-space:normal;
+      max-width:190px;
+    }
+
+    .callout{
+      padding:15px 17px;
+      margin:20px 0;
+    }
+
+    .methodology{
+      margin:0;
+      padding:20px 18px;
+      border-radius:8px 8px 0 0;
+    }
+
+    .formula{
+      overflow-x:auto;
+      white-space:pre-wrap;
+      word-break:break-word;
+      font-size:12px;
+      line-height:1.45;
+    }
+  }
+
 </style>
 </head>
 <body>
+<div class="an-mobile-scroll-root" id="anMobileScrollRoot">
 <div class="wrap">
   <p class="eyebrow">World Cup 2026 Analysis</p>
   <h1>Ranked: The 16 World Cup Host Venues by Heat Risk</h1>
@@ -168,51 +328,45 @@
     <p style="font-size:12px;color:#444;margin:0;">Final aggregation and ranking were produced in Google Sheets. Raw data and formula outputs are available on request.</p>
   </div>
 </div>
-
+</div>
 <script>
 (function(){
-  function contentHeight(){
-    var wrap = document.querySelector('.wrap');
-    var body = document.body;
-    var html = document.documentElement;
-    var h = Math.max(
-      wrap ? Math.ceil(wrap.getBoundingClientRect().bottom) : 0,
-      body ? body.scrollHeight : 0,
-      html ? html.scrollHeight : 0
-    );
-    return Math.max(1, h);
-  }
+  var root = document.getElementById("anMobileScrollRoot");
+  if (!root) return;
 
-  function resizeParentIframe(){
-    var h = contentHeight();
+  function isMobile(){ return window.matchMedia && window.matchMedia("(max-width: 640px)").matches; }
 
-    /* If this file is inside an iframe, try to trim the parent iframe height
-       to the real content height. This removes the big blank white gap when
-       the landing page iframe has been given a height like 5300px. */
-    try {
-      if (window.frameElement) {
-        window.frameElement.style.height = h + 'px';
-        window.frameElement.setAttribute('height', String(h));
-      }
-    } catch(e) {}
+  var startX = 0, startY = 0, lastY = 0, locked = null;
 
-    /* Optional fallback for pages that add a postMessage resize listener later. */
-    try {
-      window.parent.postMessage({ type: 'an-heat-index-resize', height: h }, '*');
-    } catch(e) {}
-  }
+  root.addEventListener("touchstart", function(e){
+    if (!isMobile() || !e.touches || !e.touches.length) return;
+    startX = e.touches[0].clientX;
+    startY = e.touches[0].clientY;
+    lastY = startY;
+    locked = null;
+  }, {passive:true});
 
-  window.addEventListener('load', resizeParentIframe);
-  window.addEventListener('resize', resizeParentIframe);
-  setTimeout(resizeParentIframe, 250);
-  setTimeout(resizeParentIframe, 1000);
+  root.addEventListener("touchmove", function(e){
+    if (!isMobile() || !e.touches || !e.touches.length) return;
 
-  if ('ResizeObserver' in window) {
-    var ro = new ResizeObserver(resizeParentIframe);
-    ro.observe(document.body);
-    var wrap = document.querySelector('.wrap');
-    if (wrap) ro.observe(wrap);
-  }
+    var x = e.touches[0].clientX;
+    var y = e.touches[0].clientY;
+    var dx = x - startX;
+    var dy = y - startY;
+
+    if (locked === null) {
+      if (Math.abs(dx) < 6 && Math.abs(dy) < 6) return;
+      locked = Math.abs(dy) >= Math.abs(dx) ? "vertical" : "horizontal";
+    }
+
+    if (locked === "vertical") {
+      root.scrollTop += (lastY - y);
+      lastY = y;
+      e.preventDefault();
+    }
+  }, {passive:false});
+
+  root.addEventListener("touchend", function(){ locked = null; }, {passive:true});
 })();
 </script>
 </body>
