@@ -76,7 +76,9 @@
 
     .an-mobile-scroll-root{
       height:100vh;
+      height:100dvh;
       max-height:100vh;
+      max-height:100dvh;
       overflow-y:auto;
       overflow-x:hidden;
       -webkit-overflow-scrolling:touch;
@@ -84,6 +86,7 @@
       touch-action:pan-y;
       scrollbar-width:thin;
       scrollbar-color:#00C853 #eaf6ee;
+      background:#fff;
     }
 
     .an-mobile-scroll-root::-webkit-scrollbar{
@@ -106,7 +109,7 @@
 
     .wrap{
       max-width:100%;
-      padding:24px 16px 0;
+      padding:24px 16px 22px;
     }
 
     h1{
@@ -189,6 +192,7 @@
       min-width:760px;
       overflow-x:auto;
       -webkit-overflow-scrolling:touch;
+      touch-action:pan-x;
       scrollbar-width:thin;
       scrollbar-color:#00C853 #eaf6ee;
     }
@@ -223,9 +227,9 @@
     }
 
     .methodology{
-      margin:0;
+      margin:0 0 14px;
       padding:20px 18px;
-      border-radius:8px 8px 0 0;
+      border-radius:8px;
     }
 
     .formula{
@@ -334,19 +338,55 @@
   var root = document.getElementById("anMobileScrollRoot");
   if (!root) return;
 
-  function isMobile(){ return window.matchMedia && window.matchMedia("(max-width: 640px)").matches; }
+  function isMobile(){
+    return window.matchMedia && window.matchMedia("(max-width: 640px)").matches;
+  }
 
-  var startX = 0, startY = 0, lastY = 0, locked = null;
+  function setMobileScrollHeight(){
+    if (!isMobile()) {
+      root.style.height = "";
+      root.style.maxHeight = "";
+      return;
+    }
 
-  root.addEventListener("touchstart", function(e){
+    /* In a fixed-height iframe, window.innerHeight is the iframe's actual visible
+       height. Using it directly keeps the full widget surface scrollable on mobile,
+       even when the parent iframe has scrolling="no". */
+    var h = window.innerHeight || document.documentElement.clientHeight || 0;
+    if (h > 0) {
+      root.style.height = h + "px";
+      root.style.maxHeight = h + "px";
+    }
+  }
+
+  setMobileScrollHeight();
+  window.addEventListener("resize", setMobileScrollHeight, {passive:true});
+  window.addEventListener("orientationchange", function(){
+    setTimeout(setMobileScrollHeight, 250);
+  }, {passive:true});
+
+  var startX = 0;
+  var startY = 0;
+  var lastY = 0;
+  var locked = null;
+
+  function closestScrollableX(el){
+    while (el && el !== document.body && el !== root) {
+      if (el.classList && el.classList.contains("rankings")) return el;
+      el = el.parentNode;
+    }
+    return null;
+  }
+
+  function onTouchStart(e){
     if (!isMobile() || !e.touches || !e.touches.length) return;
     startX = e.touches[0].clientX;
     startY = e.touches[0].clientY;
     lastY = startY;
     locked = null;
-  }, {passive:true});
+  }
 
-  root.addEventListener("touchmove", function(e){
+  function onTouchMove(e){
     if (!isMobile() || !e.touches || !e.touches.length) return;
 
     var x = e.touches[0].clientX;
@@ -355,18 +395,32 @@
     var dy = y - startY;
 
     if (locked === null) {
-      if (Math.abs(dx) < 6 && Math.abs(dy) < 6) return;
-      locked = Math.abs(dy) >= Math.abs(dx) ? "vertical" : "horizontal";
+      if (Math.abs(dx) < 5 && Math.abs(dy) < 5) return;
+      locked = Math.abs(dx) > Math.abs(dy) ? "horizontal" : "vertical";
+    }
+
+    if (locked === "horizontal" && closestScrollableX(e.target)) {
+      return;
     }
 
     if (locked === "vertical") {
       root.scrollTop += (lastY - y);
       lastY = y;
       e.preventDefault();
+      e.stopPropagation();
     }
-  }, {passive:false});
+  }
 
-  root.addEventListener("touchend", function(){ locked = null; }, {passive:true});
+  function onTouchEnd(){
+    locked = null;
+  }
+
+  /* Capture phase makes the centre of the widget behave like a normal scrollable
+     page, instead of letting tables/text blocks or the parent article steal the swipe. */
+  document.addEventListener("touchstart", onTouchStart, {passive:true, capture:true});
+  document.addEventListener("touchmove", onTouchMove, {passive:false, capture:true});
+  document.addEventListener("touchend", onTouchEnd, {passive:true, capture:true});
+  document.addEventListener("touchcancel", onTouchEnd, {passive:true, capture:true});
 })();
 </script>
 </body>
