@@ -6,8 +6,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Ranked: The 16 World Cup Host Venues by Heat Risk | The Action Network</title>
 <style>
-  body{margin:0;padding:0;background:#fff;font-family:Georgia,serif;color:#1a1a1a;}
-  .wrap{max-width:760px;margin:0 auto;padding:32px 20px 64px;}
+  html{margin:0;padding:0;background:transparent;overflow-x:hidden;scrollbar-width:thin;scrollbar-color:#00C853 #e8f5ed;}
+  body{margin:0;padding:0;background:transparent;font-family:Georgia,serif;color:#1a1a1a;overflow-x:hidden;}
+  body::-webkit-scrollbar{width:10px;height:10px;}
+  body::-webkit-scrollbar-track{background:#e8f5ed;}
+  body::-webkit-scrollbar-thumb{background:#00C853;border-radius:999px;border:2px solid #e8f5ed;}
+  body::-webkit-scrollbar-thumb:hover{background:#009640;}
+  .wrap{max-width:760px;margin:0 auto;padding:32px 20px 0;}
   .eyebrow{font-family:Arial,Helvetica,sans-serif;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#00C853;border-bottom:2px solid #00C853;display:inline-block;padding-bottom:2px;margin:0 0 16px;}
   h1{font-family:Arial,Helvetica,sans-serif;font-size:46px;font-weight:900;line-height:1;text-transform:uppercase;letter-spacing:-.01em;color:#1a1a1a;margin:0 0 16px;}
   h2{font-family:Arial,Helvetica,sans-serif;font-size:26px;font-weight:700;text-transform:uppercase;letter-spacing:.02em;margin:0 0 16px;color:#1a1a1a;}
@@ -50,130 +55,32 @@
   .score-low .score-fill{background:#00A651;}
   .callout{background:#f5f5f5;border-left:4px solid #00C853;border-radius:0 6px 6px 0;padding:16px 20px;margin:24px 0;}
   .callout p{font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.6;color:#1a1a1a;margin:0;}
-  .methodology{background:#f5f5f5;border-left:4px solid #00C853;border-radius:8px;padding:24px;margin:0 0 32px;}
+  .methodology{background:#f5f5f5;border-left:4px solid #00C853;border-radius:8px;padding:24px;margin:0;}
   .methodology h2{font-size:20px;margin:0 0 8px;}
   .methodology p{font-family:Arial,Helvetica,sans-serif;font-size:14px;line-height:1.6;color:#111;margin:0 0 12px;}
   .methodology strong{color:#111;}
-  .formula{background:#fff;border:1px solid #ddd;border-radius:4px;padding:16px 20px;margin:0 0 12px;font-family:'Courier New',monospace;font-size:13px;color:#1a1a1a;}
+  .formula{background:#fff;border:1px solid #ddd;border-radius:4px;padding:16px 20px;margin:0 0 12px;font-family:'Courier New',monospace;font-size:13px;color:#1a1a1a;overflow-x:auto;}
 
-
-  /* Mobile iframe scroll fix
-     When this HTML is hosted inside a fixed-height iframe, mobile layouts can become
-     taller than the iframe and get cut off. This shell creates a branded internal
-     scroll area only on mobile, while desktop remains naturally expanded. */
-  .an-mobile-scroll-shell{
-    width:100%;
-    background:#fff;
-  }
-
+  .methodology p:last-child{margin-bottom:0!important;}
   @media (max-width:640px){
-    html,
-    body{
-      width:100%;
-      height:100%;
-      min-height:100%;
-      overflow:hidden;
-      overscroll-behavior:contain;
-      -webkit-overflow-scrolling:auto;
-    }
-
-    .an-mobile-scroll-shell{
-      height:100vh;
-      max-height:100vh;
-      overflow-y:auto;
-      overflow-x:hidden;
-      -webkit-overflow-scrolling:touch;
-      overscroll-behavior:contain;
-      touch-action:pan-y;
-      scrollbar-width:thin;
-      scrollbar-color:#00C853 #e8f5ed;
-    }
-
-    .an-mobile-scroll-shell::-webkit-scrollbar{
-      width:10px;
-    }
-
-    .an-mobile-scroll-shell::-webkit-scrollbar-track{
-      background:#e8f5ed;
-    }
-
-    .an-mobile-scroll-shell::-webkit-scrollbar-thumb{
-      background:#00C853;
-      border-radius:999px;
-      border:2px solid #e8f5ed;
-    }
-
-    .an-mobile-scroll-shell::-webkit-scrollbar-thumb:hover{
-      background:#009640;
-    }
-
-    .wrap{
-      max-width:100%;
-      padding:24px 16px 56px;
-    }
-
-    h1{
-      font-size:34px;
-      line-height:1.03;
-    }
-
-    h2{
-      font-size:22px;
-    }
-
-    .dek{
-      font-size:16px;
-    }
-
-    .stats,
-    .stats tbody,
-    .stats tr,
-    .stats td{
-      display:block;
-      width:100% !important;
-      box-sizing:border-box;
-    }
-
-    .stats td{
-      margin:0 0 10px;
-    }
-
-    .stats td[style*="background:transparent"]{
-      display:none;
-    }
-
-    .rankings{
-      min-width:720px;
-    }
-
-    .rankings-scroll{
-      width:100%;
-      overflow-x:auto;
-      overflow-y:visible;
-      -webkit-overflow-scrolling:touch;
-      scrollbar-width:thin;
-      scrollbar-color:#00C853 #e8f5ed;
-    }
-
-    .rankings-scroll::-webkit-scrollbar{
-      height:8px;
-    }
-
-    .rankings-scroll::-webkit-scrollbar-track{
-      background:#e8f5ed;
-    }
-
-    .rankings-scroll::-webkit-scrollbar-thumb{
-      background:#00C853;
-      border-radius:999px;
-      border:2px solid #e8f5ed;
-    }
+    .wrap{max-width:100%;padding:24px 16px 0;}
+    h1{font-size:34px;line-height:1.03;}
+    h2{font-size:22px;}
+    .dek{font-size:16px;}
+    .stats,.stats tbody,.stats tr,.stats td{display:block;width:100%!important;}
+    .stats td{margin:0 0 10px;}
+    .stats td[style*="transparent"]{display:none!important;}
+    .rankings{display:block;width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:thin;scrollbar-color:#00C853 #e8f5ed;}
+    .rankings::-webkit-scrollbar{height:8px;}
+    .rankings::-webkit-scrollbar-track{background:#e8f5ed;}
+    .rankings::-webkit-scrollbar-thumb{background:#00C853;border-radius:999px;border:2px solid #e8f5ed;}
+    .rankings thead,.rankings tbody{display:table;min-width:720px;width:720px;}
+    .methodology{padding:20px 18px;border-radius:6px;}
+    .formula{font-size:12px;white-space:normal;word-break:break-word;}
   }
-
 </style>
 </head>
 <body>
-<div class="an-mobile-scroll-shell" id="anMobileScrollShell">
 <div class="wrap">
   <p class="eyebrow">World Cup 2026 Analysis</p>
   <h1>Ranked: The 16 World Cup Host Venues by Heat Risk</h1>
@@ -203,7 +110,6 @@
   <h2>Full Rankings</h2>
   <p>The Total Risk Score combines feels-like temperature, urban heat intensity, solar radiation, and a roof penalty into one number. Higher scores mean more heat exposure.</p>
 
-  <div class="rankings-scroll">
   <table class="rankings">
     <thead><tr><th>#</th><th>City / Stadium</th><th>Feels Like</th><th>UHI</th><th>Roof</th><th>Score</th></tr></thead>
     <tbody>
@@ -225,7 +131,6 @@
       <tr><td class="rank">16</td><td><span class="venue-name">Vancouver</span><span class="venue-sub">BC Place, Canada</span></td><td>69.2&deg;F</td><td>13.1&deg;F</td><td><span class="badge retractable">Retractable</span></td><td class="score-cell"><div class="score-bar score-low"><span class="score-track"><span class="score-fill" style="width:54.9%"></span></span><span class="score-val">54.9</span></div></td></tr>
     </tbody>
   </table>
-  </div>
 
   <hr>
   <h2>Monterrey</h2>
@@ -263,52 +168,51 @@
     <p style="font-size:12px;color:#444;margin:0;">Final aggregation and ranking were produced in Google Sheets. Raw data and formula outputs are available on request.</p>
   </div>
 </div>
-</div>
+
 <script>
 (function(){
-  var shell = document.getElementById("anMobileScrollShell");
-  if(!shell) return;
-
-  var startX = 0;
-  var startY = 0;
-  var startScrollTop = 0;
-  var isTouching = false;
-
-  function isMobile(){
-    return window.matchMedia && window.matchMedia("(max-width: 640px)").matches;
+  function contentHeight(){
+    var wrap = document.querySelector('.wrap');
+    var body = document.body;
+    var html = document.documentElement;
+    var h = Math.max(
+      wrap ? Math.ceil(wrap.getBoundingClientRect().bottom) : 0,
+      body ? body.scrollHeight : 0,
+      html ? html.scrollHeight : 0
+    );
+    return Math.max(1, h);
   }
 
-  shell.addEventListener("touchstart", function(e){
-    if(!isMobile() || !e.touches || !e.touches.length) return;
-    isTouching = true;
-    startX = e.touches[0].clientX;
-    startY = e.touches[0].clientY;
-    startScrollTop = shell.scrollTop;
-  }, {passive:true});
+  function resizeParentIframe(){
+    var h = contentHeight();
 
-  shell.addEventListener("touchmove", function(e){
-    if(!isTouching || !isMobile() || !e.touches || !e.touches.length) return;
+    /* If this file is inside an iframe, try to trim the parent iframe height
+       to the real content height. This removes the big blank white gap when
+       the landing page iframe has been given a height like 5300px. */
+    try {
+      if (window.frameElement) {
+        window.frameElement.style.height = h + 'px';
+        window.frameElement.setAttribute('height', String(h));
+      }
+    } catch(e) {}
 
-    var currentX = e.touches[0].clientX;
-    var currentY = e.touches[0].clientY;
-    var dx = currentX - startX;
-    var dy = currentY - startY;
+    /* Optional fallback for pages that add a postMessage resize listener later. */
+    try {
+      window.parent.postMessage({ type: 'an-heat-index-resize', height: h }, '*');
+    } catch(e) {}
+  }
 
-    /* If the movement is mostly horizontal, leave it alone so the rankings table can swipe sideways. */
-    if(Math.abs(dx) > Math.abs(dy)) return;
+  window.addEventListener('load', resizeParentIframe);
+  window.addEventListener('resize', resizeParentIframe);
+  setTimeout(resizeParentIframe, 250);
+  setTimeout(resizeParentIframe, 1000);
 
-    /* For vertical drags anywhere in the widget, move the shell itself. */
-    shell.scrollTop = startScrollTop - dy;
-    e.preventDefault();
-  }, {passive:false});
-
-  shell.addEventListener("touchend", function(){
-    isTouching = false;
-  }, {passive:true});
-
-  shell.addEventListener("touchcancel", function(){
-    isTouching = false;
-  }, {passive:true});
+  if ('ResizeObserver' in window) {
+    var ro = new ResizeObserver(resizeParentIframe);
+    ro.observe(document.body);
+    var wrap = document.querySelector('.wrap');
+    if (wrap) ro.observe(wrap);
+  }
 })();
 </script>
 </body>
