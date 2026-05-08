@@ -18,7 +18,7 @@
   .byline{font-family:Arial,Helvetica,sans-serif;font-size:13px;color:#888;margin:0 0 32px;padding-bottom:24px;border-bottom:1px solid #e0e0e0;}
   hr{border:none;border-top:1px solid #e0e0e0;margin:40px 0;}
   .stats{width:100%;margin:0 0 32px;border-collapse:separate;border-spacing:0;}
-  .stats td{background:#f5f5f5;border-radius:6px;padding:16px;text-align:center;}
+  .stats td{background:#fff;border:1px solid #e6e8ef;border-radius:10px;padding:16px;text-align:center;box-shadow:0 1px 0 rgba(17,24,39,.02);}
   .stats .num{font-family:Arial,Helvetica,sans-serif;font-size:32px;font-weight:900;color:#00C853;display:block;line-height:1;}
   .stats .label{font-family:Arial,Helvetica,sans-serif;font-size:11px;color:#888;text-transform:uppercase;letter-spacing:.06em;}
   .findings{width:100%;margin:0 0 32px;border-collapse:separate;border-spacing:14px 14px;}
@@ -30,10 +30,10 @@
     .findings tr,.findings td{display:block;width:100%;}
     .findings td{margin:0 0 14px;}
   }
-  .rankings{width:100%;margin:0 0 32px;border-collapse:collapse;font-family:Arial,Helvetica,sans-serif;}
-  .rankings thead tr{border-bottom:2px solid #1a1a1a;}
+  .rankings{width:100%;margin:0 0 32px;border-collapse:separate;border-spacing:0;font-family:Arial,Helvetica,sans-serif;background:#fff;border:1px solid #e6e8ef;border-radius:10px;overflow:hidden;}
+  .rankings thead tr{border-bottom:2px solid #1a1a1a;background:#fff;}
   .rankings th{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#888;padding:8px 10px;text-align:left;}
-  .rankings td{border-bottom:1px solid #eee;padding:10px;font-size:14px;vertical-align:middle;}
+  .rankings td{border-bottom:1px solid #eee;padding:10px;font-size:14px;vertical-align:middle;background:#fff;}
   .rank{font-size:18px!important;font-weight:900!important;color:#c7c7c7;}
   .venue-name{font-size:14px;font-weight:700;color:#000;display:block;}
   .venue-sub{font-size:12px;color:#6b7280;display:block;margin-top:2px;}
@@ -50,9 +50,9 @@
   .score-high .score-fill{background:#D50000;}
   .score-mid .score-fill{background:#F57C00;}
   .score-low .score-fill{background:#00A651;}
-  .callout{background:#f5f5f5;border-left:4px solid #00C853;border-radius:0 6px 6px 0;padding:16px 20px;margin:24px 0;}
+  .callout{background:#fff;border:1px solid #e6e8ef;border-left:4px solid #00C853;border-radius:0 8px 8px 0;padding:16px 20px;margin:24px 0;}
   .callout p{font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.6;color:#1a1a1a;margin:0;}
-  .methodology{background:#f5f5f5;border-left:4px solid #00C853;border-radius:8px;padding:24px;margin:0 0 32px;}
+  .methodology{background:#fff;border:1px solid #e6e8ef;border-left:4px solid #00C853;border-radius:8px;padding:24px;margin:0 0 32px;}
   .methodology h2{font-size:20px;margin:0 0 8px;}
   .methodology p{font-family:Arial,Helvetica,sans-serif;font-size:14px;line-height:1.6;color:#111;margin:0 0 12px;}
   .methodology strong{color:#111;}
@@ -84,7 +84,7 @@
       overflow-y:auto;
       overflow-x:hidden;
       -webkit-overflow-scrolling:touch;
-      overscroll-behavior:contain;
+      overscroll-behavior:auto;
       touch-action:pan-y;
       scrollbar-width:thin;
       scrollbar-color:#00C853 #eaf6ee;
@@ -406,7 +406,24 @@
     }
 
     if (locked === "vertical") {
-      root.scrollTop += (lastY - y);
+      var delta = lastY - y;
+      var maxScroll = root.scrollHeight - root.clientHeight;
+      var atTop = root.scrollTop <= 0;
+      var atBottom = root.scrollTop >= maxScroll - 1;
+      var scrollingUpPastTop = delta < 0 && atTop;
+      var scrollingDownPastBottom = delta > 0 && atBottom;
+
+      /*
+        Only capture the swipe while the widget itself can still move.
+        Once the mobile scrollbar reaches the top or bottom, release the gesture
+        so the parent landing page can continue scrolling naturally.
+      */
+      if (scrollingUpPastTop || scrollingDownPastBottom) {
+        lastY = y;
+        return;
+      }
+
+      root.scrollTop += delta;
       lastY = y;
       e.preventDefault();
       e.stopPropagation();
